@@ -42,5 +42,19 @@ But now only the back-end is present in the proyect but i will create the backen
 
 ## End Points
 **Clients** <p>
-```localhost:8090/api/clients/create | To create a new user```
+* ```localhost:8090/api/clients/create | To create a new client```
+* ```localhost:8090/api/clients/all | To get all clients```
+* ```localhost:8090/api/clients/search/{id} | To get a specific client```
+
+**Products** <p>
+* ```localhost:8090/api/products/create | To create a new product```
+* ```localhost:8090/api/products/all | To get all products```
+* ```localhost:8090/api/products/search/{id} | To get a specific product```
+* ```localhost:8090/api/products/update/{id} | To update a specific product```
+
+**Clients** <p>
+* ```localhost:8090/api/orders/create | To create a new order```
+* ```localhost:8090/api/orders/all | To get all orders```
+* ```localhost:8090/api/orders/search/{id} | To get a specific order```
+* ```localhost:8090/api/orders/user/{id} | To get all product from user```
 
