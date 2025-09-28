@@ -1,6 +1,6 @@
 ## Introduction
 **Comerce** is my first proyect what i am using spring boot with microservice architecture.
-But now only the back-end is present in the proyect but i will create the backend in the next update.
+But now only the back-end is present in the proyect but i will create the front-end in the next update.
 
 ## Services
 * **MySQL** <p>
