@@ -3,42 +3,42 @@
 But now only the back-end is present in the proyect but i will create the backend in the next update.
 
 ## Services
-**MySQL** <p>
-Host: localhost <p>
-Port: 3306
+* **MySQL** <p>
+   * Host: localhost <p>
+   * Port: 3306
 
-**Configuration** <p>
-Host: localhost <p>
-Port: 8888  <p>
-Microservice name: microservice-config
+* **Configuration** <p>
+  * Host: localhost <p>
+  * Port: 8888  <p>
+  * Microservice name: microservice-config
 
-**Eureka** <p>
-Host: localhost  <p>
-Port: 8761  <p>
-Microservice name: microservice-eureka
+* **Eureka** <p>
+  * Host: localhost  <p>
+  * Port: 8761  <p>
+  * Microservice name: microservice-eureka
 
-**Gateway** <p>
-Host: localhost  <p>
-Port: 8080  <p>
-Microservice name: microservice-gateway
+* **Gateway** <p>
+  * Host: localhost  <p>
+  * Port: 8080  <p>
+  * Microservice name: microservice-gateway
 
-**Client** <p>
-Host: localhost  <p>
-Port: 8090  <p>
-Microservice name: microservice-client  <p>
-MySQL: microservice-clients
+* **Client** <p>
+  * Host: localhost  <p>
+  * Port: 8090  <p>
+  * Microservice name: microservice-client  <p>
+  * MySQL: microservice-clients
 
-**Product** <p>
-Host: localhost  <p>
-Port: 8091  <p>
-Microservice name: microservice-product  <p>
-MySQL: microservice-products
+* **Product** <p>
+  * Host: localhost  <p>
+  * Port: 8091  <p>
+  * Microservice name: microservice-product  <p>
+  * MySQL: microservice-products
 
-**Order** <p>
-Host: localhost  <p>
-Port: 8092  <p>
-Microservice name: microservice-orderservice  <p>
-MySQL: microservice-orderservices
+* **Order** <p>
+  * Host: localhost  <p>
+  * Port: 8092  <p>
+  * Microservice name: microservice-orderservice  <p>
+  * MySQL: microservice-orderservices
 
 ## End Points
 **Clients** <p>
