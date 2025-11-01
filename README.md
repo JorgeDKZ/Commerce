@@ -1,5 +1,5 @@
 ## Introduction
-**Comerce** is my first proyect what i am using spring boot with microservice architecture.
+**Comerce** is my proyect what i am using spring boot with microservice architecture.
 But now only the back-end is present in the proyect but i will create the front-end in the next update.
 
 ## Services
