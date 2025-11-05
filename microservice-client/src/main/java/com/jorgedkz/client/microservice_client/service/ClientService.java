@@ -29,4 +29,10 @@ public class ClientService implements InterfaceClientService {
         clientRepository.save(client);
     }
 
+    @Override
+    public Client findByName(String name){
+        return clientRepository.findByName(name);
+    }
+
+
 }

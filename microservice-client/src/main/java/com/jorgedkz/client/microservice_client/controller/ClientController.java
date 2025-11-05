@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.jorgedkz.client.microservice_client.entity.Client;
 import com.jorgedkz.client.microservice_client.service.ClientService;
+import com.jorgedkz.client.microservice_client.validations.validatorInterface.ClientExistById;
+import com.jorgedkz.client.microservice_client.validations.validatorInterface.ClientExistByName;
+import com.jorgedkz.client.microservice_client.validations.validatorInterface.UniqueName;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,14 +27,22 @@ public class ClientController {
 
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
-    public void createUser(@RequestBody Client entity) {
+    public void createUser(@UniqueName @RequestBody Client entity) {
         clientService.save(entity);
     }
 
     @GetMapping("/search/{id}")
-    public ResponseEntity<?> findUser(@PathVariable Long id) {
+    public ResponseEntity<?> findUserById(@ClientExistById @PathVariable Long id) {
 
         Client client = clientService.findById(id);
+
+        return ResponseEntity.ok(client);
+    }
+
+    @GetMapping("/search/{name}")
+    public ResponseEntity<?> findUserByName(@ClientExistByName @PathVariable String name) {
+
+        Client client = clientService.findByName(name);
         if (client == null) {
             return ResponseEntity.notFound().build();
         }
@@ -43,6 +54,6 @@ public class ClientController {
     public ResponseEntity<?> getAllUser() {
         return ResponseEntity.ok(clientService.findAll());
     }
-    
 
+    
 }

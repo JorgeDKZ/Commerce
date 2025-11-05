@@ -6,21 +6,19 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import com.jorgedkz.client.microservice_client.validations.UniqueNameValidation;
+import com.jorgedkz.client.microservice_client.validations.ClientExistByIdValidation;
 
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
 
 @Documented
-@Constraint(validatedBy = UniqueNameValidation.class)
+@Constraint(validatedBy = ClientExistByIdValidation.class)
 @Target(ElementType.PARAMETER)
 @Retention(RetentionPolicy.RUNTIME)
-
-public @interface UniqueName {
-    String message() default "That name is already exist";
+public @interface ClientExistById {
+    String message() default "User not found";
 
     Class<?>[] groups() default {};
 
     Class<? extends Payload>[] payload() default {};
-
 }
