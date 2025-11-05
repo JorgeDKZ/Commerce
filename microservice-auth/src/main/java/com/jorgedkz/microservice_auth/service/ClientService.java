@@ -7,60 +7,90 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.jorgedkz.microservice_auth.entities.Client;
+import com.jorgedkz.microservice_auth.exceptions.ClientServiceException;
 import com.jorgedkz.microservice_auth.repository.ClientRepository;
 import com.jorgedkz.microservice_auth.service.interfaces.ClientServiceInterface;
 
 @Service
-public class ClientService implements ClientServiceInterface{
+public class ClientService implements ClientServiceInterface {
 
     @Autowired
     private ClientRepository clientRepository;
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    private final boolean CLIENT_NOT_ENABLE = false;
+
     @Override
-    public Client encodeClientBufferPassword(Client user) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'encodeClientBufferPassword'");
+    public Client encodeClientBufferPassword(Client client) {
+        client.setPassword(passwordEncoder.encode(client.getPassword()));
+        return client;
     }
+
     @Override
-    public void saveUser(Client user) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'saveUser'");
+    public void saveClient(Client client) {
+        clientRepository.save(encodeClientBufferPassword(client));
     }
+
     @Override
-    public Client findByUserName(String userName) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findByUserName'");
+    public Client findByClientName(String userName) {
+        return findByClientName(userName);
     }
+
     @Override
-    public void validateUser(Client user) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'validateUser'");
+    public void validateClient(Client client) {
+        if (!validate(client)) {
+            throw new ClientServiceException("The client or the password is wrong");
+        }
     }
-    @Override
-    public void deleteUser(String userName) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteUser'");
+
+    private boolean validate(Client client) {
+        Client clientValided = findByClientName(client.getUserName());
+        return !(clientValided == null || passwordEncoder.matches(client.getPassword(), clientValided.getPassword()));
     }
+
     @Override
-    public void deleteUser(Long userID) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteUser'");
+    public void deleteClientByName(String clientName) {
+        Client client = clientRepository.findByName(clientName);
+        deleteClient(client);
     }
+
     @Override
-    public void deleteUser(Client userName) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteUser'");
+    public void deleteClientById(Long clientID) {
+        Client client = clientRepository.findById(clientID).get();
+        deleteClient(client);
     }
+
     @Override
-    public String[] getRoles(String userName) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getRoles'");
+    public void deleteClientByValidation(Client clientName) {
+        if (validate(clientName)) {
+            throw new ClientServiceException("The client or the password is wrong");
+        } else {
+            deleteClient(clientName);
+        }
     }
+
+    private void deleteClient(Client client) {
+        if (client == null) {
+            throw new ClientServiceException("This client was removed");
+        }
+        if (!client.isEnable()) {
+            throw new ClientServiceException("The client do not exist");
+        }
+
+        client.setEnable(CLIENT_NOT_ENABLE);
+    }
+
     @Override
-    public boolean userHasRole(String userName, String role) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'userHasRole'");
+    public String getRoles(String clientName) {
+        return clientRepository.findByName(clientName).getRole();
+    }
+
+    @Override
+    public boolean clientHasRole(String clientName, String role) {
+        String clientRole = clientRepository.findByName(clientName).getRole();
+
+        return clientRole.equals(clientRole);
     }
 
 }

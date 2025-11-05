@@ -8,21 +8,21 @@ import com.jorgedkz.microservice_auth.entities.Client;
  */
 public interface ClientServiceInterface {
 
-    public Client encodeClientBufferPassword(Client user);
+    public Client encodeClientBufferPassword(Client client);
 
-    public void saveUser(Client user);
+    public void saveClient(Client client);
 
-    public Client findByUserName(String userName);
+    public Client findByClientName(String userName);
 
-    public void validateUser(Client user);
+    public void validateClient(Client client);
 
-    public void deleteUser(String userName);
+    public void deleteClientByName(String clientName);
 
-    public void deleteUser(Long userID);
+    public void deleteClientById(Long clientID);
 
-    public void deleteUser(Client userName);
+    public void deleteClientByValidation(Client clientName);
 
-    public String[] getRoles(String userName);
+    public String getRoles(String clientName);
 
-    public boolean userHasRole(String userName, String role);
+    public boolean clientHasRole(String clientName, String role);
 }
