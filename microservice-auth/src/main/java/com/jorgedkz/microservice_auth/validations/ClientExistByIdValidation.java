@@ -1,7 +1,7 @@
-package com.jorgedkz.client.microservice_client.validations;
+package com.jorgedkz.microservice_auth.validations;
 
-import com.jorgedkz.client.microservice_client.service.ClientService;
-import com.jorgedkz.client.microservice_client.validations.validatorInterface.ClientExistById;
+import com.jorgedkz.microservice_auth.service.ClientService;
+import com.jorgedkz.microservice_auth.validations.validatorInterface.ClientExistById;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
@@ -17,7 +17,7 @@ public class ClientExistByIdValidation implements ConstraintValidator<ClientExis
     @Override
     public boolean isValid(Long value, ConstraintValidatorContext context) {
 
-        if (clientService.findById(value) == null) {
+        if (clientService.findByClientId(value) == null) {
             return false;
         }
         return true;

@@ -1,5 +1,7 @@
 package com.jorgedkz.microservice_auth.service.interfaces;
 
+import java.util.List;
+
 import com.jorgedkz.microservice_auth.entities.Client;
 
 /**
@@ -14,6 +16,8 @@ public interface ClientServiceInterface {
 
     public Client findByClientName(String userName);
 
+    public Client findByClientId(Long userId);
+
     public void validateClient(Client client);
 
     public void deleteClientByName(String clientName);
@@ -25,4 +29,6 @@ public interface ClientServiceInterface {
     public String getRoles(String clientName);
 
     public boolean clientHasRole(String clientName, String role);
+
+    public List<Client> getAllClients();
 }

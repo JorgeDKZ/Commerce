@@ -4,8 +4,8 @@ import java.util.Date;
 
 import org.springframework.stereotype.Service;
 
-import com.jorgedkz.client.microservice_client.Enum.Roles;
 import com.jorgedkz.microservice_auth.component.RSAkeyProvider;
+import com.jorgedkz.microservice_auth.entities.Client;
 import com.nimbusds.jose.JOSEException;
 
 import io.jsonwebtoken.Jwts;
@@ -22,12 +22,13 @@ public class TokenCreation {
         this.RSAKey = RSAKey;
     }
 
-    public String getToken(String userName) throws InvalidKeyException, JOSEException {
+    public String getToken(Client client) throws InvalidKeyException, JOSEException {
+        //One hour
         final long time = 3600000;
 
         return Jwts.builder()
-                .setSubject(userName)
-                .claim("role", rol.name())
+                .setSubject(client.getUserName())
+                .claim("role", client.getRole())
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + time))
                 .signWith(RSAKey.getRsaKey().toPrivateKey(), SignatureAlgorithm.RS256)

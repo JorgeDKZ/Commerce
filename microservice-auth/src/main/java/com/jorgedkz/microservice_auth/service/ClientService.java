@@ -93,4 +93,14 @@ public class ClientService implements ClientServiceInterface {
         return clientRole.equals(clientRole);
     }
 
+    @Override
+    public List<Client> getAllClients() {
+        return clientRepository.findAll();
+    }
+
+    @Override
+    public Client findByClientId(Long userId) {
+        return findByClientId(userId);
+    }
+
 }

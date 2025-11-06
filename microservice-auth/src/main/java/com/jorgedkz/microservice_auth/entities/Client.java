@@ -1,5 +1,7 @@
 package com.jorgedkz.microservice_auth.entities;
 
+import com.jorgedkz.microservice_auth.Enum.Roles;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,4 +27,12 @@ public class Client {
     private String password;
     private String role;
     private boolean isEnable;
+
+    public Client(String userName, String password,Roles role){
+        this.userName = userName;
+        this.password = password;
+        this.role = role.name();
+        this.isEnable = true;
+
+    }
 }

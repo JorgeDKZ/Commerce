@@ -1,13 +1,13 @@
-package com.jorgedkz.client.microservice_client.configuration;
+package com.jorgedkz.microservice_auth.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.jorgedkz.client.microservice_client.service.ClientService;
-import com.jorgedkz.client.microservice_client.validations.ClientExistByIdValidation;
-import com.jorgedkz.client.microservice_client.validations.ClientExistByNameValidation;
-import com.jorgedkz.client.microservice_client.validations.UniqueNameValidation;
+import com.jorgedkz.microservice_auth.service.ClientService;
+import com.jorgedkz.microservice_auth.validations.ClientExistByIdValidation;
+import com.jorgedkz.microservice_auth.validations.ClientExistByNameValidation;
+import com.jorgedkz.microservice_auth.validations.UniqueNameValidation;
 
 @Configuration
 public class Validations {
