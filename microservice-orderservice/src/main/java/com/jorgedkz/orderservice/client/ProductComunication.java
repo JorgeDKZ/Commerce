@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.jorgedkz.orderservice.persistence.DTO.ProductDTO;
+import com.jorgedkz.orderservice.repository.DTO.ProductDTO;
 
 @FeignClient(name = "microservice-product", path = "/api/products")
 public interface ProductComunication {

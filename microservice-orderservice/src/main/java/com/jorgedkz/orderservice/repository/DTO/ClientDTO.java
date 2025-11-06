@@ -1,4 +1,4 @@
-package com.jorgedkz.orderservice.persistence.DTO;
+package com.jorgedkz.orderservice.repository.DTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,4 +1,4 @@
-package com.jorgedkz.client.microservice_client.persistence;
+package com.jorgedkz.client.microservice_client.repository;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;

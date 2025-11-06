@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.jorgedkz.orderservice.client.ClientComunication;
 import com.jorgedkz.orderservice.client.ProductComunication;
 import com.jorgedkz.orderservice.entity.OrderService;
-import com.jorgedkz.orderservice.persistence.DTO.ClientDTO;
-import com.jorgedkz.orderservice.persistence.DTO.ProductDTO;
+import com.jorgedkz.orderservice.repository.DTO.ClientDTO;
+import com.jorgedkz.orderservice.repository.DTO.ProductDTO;
 import com.jorgedkz.orderservice.service.OrderServiceService;
 
 import org.springframework.web.bind.annotation.PostMapping;

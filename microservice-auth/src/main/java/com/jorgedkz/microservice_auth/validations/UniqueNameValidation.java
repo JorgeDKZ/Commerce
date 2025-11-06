@@ -18,7 +18,7 @@ public class UniqueNameValidation implements ConstraintValidator<UniqueName, Cli
     @Override
     public boolean isValid(Client value, ConstraintValidatorContext context) {
 
-        if (clientService.findByName(value.getUserName()) == null) {
+        if (clientService.findByClientName(value.getUserName()) == null) {
             return true;
         }
         return false;

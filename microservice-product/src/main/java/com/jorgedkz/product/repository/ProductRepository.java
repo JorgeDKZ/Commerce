@@ -1,4 +1,4 @@
-package com.jorgedkz.product.persistence;
+package com.jorgedkz.product.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

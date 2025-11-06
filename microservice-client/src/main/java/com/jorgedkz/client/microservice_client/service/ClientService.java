@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jorgedkz.client.microservice_client.entity.Client;
-import com.jorgedkz.client.microservice_client.persistence.ClientRepository;
+import com.jorgedkz.client.microservice_client.repository.ClientRepository;
 
 @Service
 public class ClientService implements InterfaceClientService {

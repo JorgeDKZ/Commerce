@@ -34,7 +34,6 @@ public class Client {
     @NotNull
     @Size(min = 8)
     private String password;
-    @Null
     @Email
     private String email;
     private long phone;

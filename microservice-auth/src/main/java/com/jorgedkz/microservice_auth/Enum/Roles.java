@@ -1,4 +1,4 @@
-package com.jorgedkz.client.microservice_client.Enum;
+package com.jorgedkz.microservice_auth.Enum;
 
 public enum Roles {
 

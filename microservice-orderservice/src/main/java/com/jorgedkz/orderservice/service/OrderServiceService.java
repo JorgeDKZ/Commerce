@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jorgedkz.orderservice.entity.OrderService;
-import com.jorgedkz.orderservice.persistence.OrderRepository;
+import com.jorgedkz.orderservice.repository.OrderRepository;
 
 @Service
 public class OrderServiceService implements InterfaceOrderService {

@@ -1,4 +1,4 @@
-package com.jorgedkz.orderservice.persistence;
+package com.jorgedkz.orderservice.repository;
 
 import java.util.List;
 

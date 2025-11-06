@@ -1,6 +1,5 @@
 package com.jorgedkz.microservice_auth.DTO;
 
-import jakarta.persistence.Id;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -14,7 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class FullClientInformation {
+public class ClientFullInformation {
 
     @NotBlank
     @NotNull
