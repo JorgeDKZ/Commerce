@@ -25,6 +25,7 @@
     <module>microservice-client</module>
     <module>microservice-product</module>
     <module>microservice-orderservice</module>
+    <module>microservice-auth</module>
   </modules>
 
   <properties>

@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jorgedkz.product.entities.Product;
-import com.jorgedkz.product.persistence.ProductRepository;
+import com.jorgedkz.product.repository.ProductRepository;
 
 @Service
 public class ProductService implements InterfaceProductService {

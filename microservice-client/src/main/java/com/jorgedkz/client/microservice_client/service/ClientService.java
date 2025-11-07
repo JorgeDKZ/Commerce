@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jorgedkz.client.microservice_client.entity.Client;
-import com.jorgedkz.client.microservice_client.persistence.ClientRepository;
+import com.jorgedkz.client.microservice_client.repository.ClientRepository;
 
 @Service
 public class ClientService implements InterfaceClientService {
@@ -28,5 +28,11 @@ public class ClientService implements InterfaceClientService {
     public void save(Client client) {
         clientRepository.save(client);
     }
+
+    @Override
+    public Client findByName(String name){
+        return clientRepository.findByName(name);
+    }
+
 
 }

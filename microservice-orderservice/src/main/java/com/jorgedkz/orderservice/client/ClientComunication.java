@@ -5,7 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import com.jorgedkz.orderservice.persistence.DTO.ClientDTO;
+import com.jorgedkz.orderservice.repository.DTO.ClientDTO;
 
 @FeignClient(name = "microservice-client", path = "/api/clients")
 public interface ClientComunication {

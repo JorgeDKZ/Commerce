@@ -29,9 +29,17 @@ public class ClientController {
     }
 
     @GetMapping("/search/{id}")
-    public ResponseEntity<?> findUser(@PathVariable Long id) {
+    public ResponseEntity<?> findUserById(@PathVariable Long id) {
 
         Client client = clientService.findById(id);
+
+        return ResponseEntity.ok(client);
+    }
+
+    @GetMapping("/search/{name}")
+    public ResponseEntity<?> findUserByName(@PathVariable String name) {
+
+        Client client = clientService.findByName(name);
         if (client == null) {
             return ResponseEntity.notFound().build();
         }
@@ -43,6 +51,5 @@ public class ClientController {
     public ResponseEntity<?> getAllUser() {
         return ResponseEntity.ok(clientService.findAll());
     }
-    
 
 }
