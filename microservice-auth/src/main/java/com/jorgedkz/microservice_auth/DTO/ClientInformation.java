@@ -11,9 +11,15 @@ import lombok.NoArgsConstructor;
 @Builder
 public class ClientInformation {
 
-    private Long userId;
+    private Long authId;
     private String name;
     private String surnames;
     private String email;
     private Long phone;
+
+    @Override
+    public String toString() {
+        return "ClientInformation [email=" + email + ", name=" + name + ", phone=" + phone + ", surnames=" + surnames
+                + ", userId=" + authId + "]";
+    }
 }

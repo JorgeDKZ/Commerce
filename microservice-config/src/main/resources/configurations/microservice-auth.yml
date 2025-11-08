@@ -6,18 +6,21 @@ spring:
     name: microservice-auth
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/microservice_clients
+    url: jdbc:mysql://localhost:3306/microservice_auth
     username: root
     password: 1234
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: create-drop
     database: mysql
     database-platform: org.hibernate.dialect.MySQLDialect
   security:
     jwt:
       secret: "pV2z9Hk8tKqE1uL9fCj6yZx5RzT1WbYq7sD3vN8hG0rJ4mF2xC9aP5eQ7wT0uK1l"
       expiration: 3600000 
+logging:
+  level:
+    org.springframework.security: DEBUG
 eureka:
   instance:
     hostname: localhost

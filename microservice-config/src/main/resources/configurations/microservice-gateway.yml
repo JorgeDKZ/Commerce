@@ -14,14 +14,19 @@ spring:
           uri: 'http://localhost:8090'
           predicates:
             - Path=/api/clients/**
-        - id: students
+        - id: products
           uri: 'http://localhost:8092'
           predicates:
             - Path=/api/products/**
-        - id: courses
+        - id: orders
           uri: 'http://localhost:8091'
           predicates:
             - Path=/api/orders/**
+        - id: auth
+          uri: 'http://localhost:9000'
+          predicates:
+            - Path=/auth/**
+            - Path=/key/**
   
 eureka:
   client:

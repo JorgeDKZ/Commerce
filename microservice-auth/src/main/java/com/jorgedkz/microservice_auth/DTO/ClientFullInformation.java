@@ -33,5 +33,5 @@ public class ClientFullInformation {
     private String password;
     @Email
     private String email;
-    private long phone;
+    private Long phone;
 }

@@ -13,7 +13,7 @@ import com.jorgedkz.microservice_auth.Enum.Roles;
 import com.jorgedkz.microservice_auth.client.ClientsComunication;
 import com.jorgedkz.microservice_auth.entities.Client;
 import com.jorgedkz.microservice_auth.service.ClientService;
-import com.jorgedkz.microservice_auth.service.TokenCreation;
+import com.jorgedkz.microservice_auth.service.JwtService;
 import com.jorgedkz.microservice_auth.validations.validatorInterface.UniqueName;
 import com.nimbusds.jose.JOSEException;
 
@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
-@RequestMapping("/securityLogin")
+@RequestMapping("/auth")
 public class LoginController {
 
     @Autowired
@@ -31,7 +31,7 @@ public class LoginController {
     @Autowired
     private ClientsComunication clientsComunication;
     @Autowired
-    private TokenCreation tokenCreation;
+    private JwtService tokenCreation;
 
     @PostMapping("/login")
     @ResponseStatus(HttpStatus.CREATED)
@@ -51,14 +51,16 @@ public class LoginController {
         // Create a new user to auth database
         Client newClient = new Client(entity.getUserName(), entity.getPassword(), Roles.USER);
         userService.saveClient(newClient);
-        //
+        //Find client to get id
         newClient = userService.findByClientName(newClient.getUserName());
         // Create a new user to user database
         ClientInformation newInformationCliente = new ClientInformation(newClient.getId(), entity.getName(),
                 entity.getSurnames(), entity.getEmail(), entity.getPhone());
         clientsComunication.addClient(newInformationCliente);
 
-        return new ResponseEntity<String>(tokenCreation.getToken(newClient), HttpStatus.CREATED);
+        System.out.println("Registered client: " + newInformationCliente.toString());
+        return new ResponseEntity<String>(tokenCreation.generateToken(newClient.getUserName(), newClient.getRole()),
+                HttpStatus.CREATED);
     }
 
 }

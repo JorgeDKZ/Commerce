@@ -34,7 +34,7 @@ public class ClientService implements ClientServiceInterface {
 
     @Override
     public Client findByClientName(String userName) {
-        return findByClientName(userName);
+        return clientRepository.findByName(userName);
     }
 
     @Override

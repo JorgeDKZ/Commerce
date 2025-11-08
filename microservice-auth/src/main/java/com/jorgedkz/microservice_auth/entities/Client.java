@@ -2,6 +2,7 @@ package com.jorgedkz.microservice_auth.entities;
 
 import com.jorgedkz.microservice_auth.Enum.Roles;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,6 +24,7 @@ public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(unique = true, name = "username")
     private String userName;
     private String password;
     private String role;

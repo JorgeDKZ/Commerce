@@ -1,13 +1,13 @@
 package com.jorgedkz.microservice_auth.validations;
 
-import com.jorgedkz.microservice_auth.entities.Client;
+import com.jorgedkz.microservice_auth.DTO.ClientFullInformation;
 import com.jorgedkz.microservice_auth.service.ClientService;
 import com.jorgedkz.microservice_auth.validations.validatorInterface.UniqueName;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 
-public class UniqueNameValidation implements ConstraintValidator<UniqueName, Client> {
+public class UniqueNameValidation implements ConstraintValidator<UniqueName, ClientFullInformation> {
 
     private ClientService clientService;
 
@@ -16,7 +16,7 @@ public class UniqueNameValidation implements ConstraintValidator<UniqueName, Cli
     }
 
     @Override
-    public boolean isValid(Client value, ConstraintValidatorContext context) {
+    public boolean isValid(ClientFullInformation value, ConstraintValidatorContext context) {
 
         if (clientService.findByClientName(value.getUserName()) == null) {
             return true;
