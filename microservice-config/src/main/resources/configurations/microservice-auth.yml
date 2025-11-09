@@ -16,7 +16,6 @@ spring:
     database-platform: org.hibernate.dialect.MySQLDialect
   security:
     jwt:
-      secret: "pV2z9Hk8tKqE1uL9fCj6yZx5RzT1WbYq7sD3vN8hG0rJ4mF2xC9aP5eQ7wT0uK1l"
       expiration: 3600000 
 logging:
   level:

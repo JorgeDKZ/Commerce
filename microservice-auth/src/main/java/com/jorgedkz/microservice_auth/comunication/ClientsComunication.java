@@ -1,4 +1,4 @@
-package com.jorgedkz.microservice_auth.client;
+package com.jorgedkz.microservice_auth.comunication;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
